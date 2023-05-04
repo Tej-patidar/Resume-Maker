@@ -1,0 +1,31 @@
+<%- include('../partials/header')%>
+<div style="background-image: url(https://images.unsplash.com/photo-1602345397613-0934a8812d23?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8YmxhY2slMjBiYWNrZ3JvdW5kfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60);width: 100%;
+height: 90%; background-repeat: no-repeat; background-size: cover; background-position: center;">
+<div class="container text-light p-3"  >
+    <ul class="d-flex justify-content-around list-unstyled btn btn-info p-2">
+        <li><a href="/education"><button class="btn btn-success"> Eduaction</button></a></li> 
+        <li><a href="/skill"><button class="btn btn-success">Skill</button></a></li>
+        <li><a href="/project"><button class="btn btn-success">Project</button></a></li>
+        <li><a href="/experience"><button class="btn btn-success">Experience</button></a></li>
+        <li><a href="/interest"><button class="btn btn-secondary">Interest</button></a></li>
+    </ul>
+    <hr />
+    <form action="/add-interest" class="interest mt-5 container w-50" method="POST">
+        <input type="text" placeholder="Interest" name="interest" class="form-control "/><br>
+
+        <button class="btn btn-success form-control">Add Interest</button>
+    </form>
+    <hr />
+    <div class="d-flex flex-wrap">
+        <% user.interest.forEach((e, i)=> { %>
+        <div class="card me-3 mb-3 " style="width: 18rem">
+            <div class="card-body bg-warning">
+                <h5 class="card-title"><%= e.interest%></h5>
+                <a href="/delete-interest/<%= i%>" class="card-link"><button class="btn btn-danger">Remove</button></a>
+            </div>
+        </div>
+        <% })%>
+    </div>
+</div>
+
+<%- include('../partials/footer')%>

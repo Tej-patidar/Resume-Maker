@@ -1,0 +1,40 @@
+<%- include('../partials/header')%>
+<div style="background-image: url(https://images.unsplash.com/photo-1572177812156-58036aae439c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvamVjdHN8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60);width: 100%;
+height: 130%; background-repeat: no-repeat; background-size: cover; background-position: center;">
+<div class="container  p-3">
+    <ul class="d-flex justify-content-around list-unstyled btn btn-info p-2">
+        <li><a href="/education"><button class="btn btn-success"> Eduaction</button></a></li> 
+        <li><a href="/skill"><button class="btn btn-success">Skill</button></a></li>
+        <li><a href="/project"><button class="btn btn-secondary">Project</button></a></li>
+        <li><a href="/experience"><button class="btn btn-success">Experience</button></a></li>
+        <li><a href="/interest"><button class="btn btn-success">Interest</button></a></li>
+    </ul>
+    <hr />
+    <form action="/add-project" class="project mt-5 container" method="POST">
+        <input type="text" placeholder="Title of project" name="title" class="form-control" /><br>
+        <input type="text" placeholder="Description" name="description" class="form-control" /><br>
+        <input type="text" placeholder="Technology" name="technology" class="form-control" /><br>
+        <input type="text" placeholder="Link" name="link" class="form-control" /><br>
+        
+
+        <button class="form-control btn btn-success">Add Projects</button>
+    </form>
+    <hr />
+    <div class="d-flex flex-wrap">
+        <% user.project.forEach((e, i)=> { %>
+        <div class="card me-3 mb-3" style="width: 18rem">
+            <div class="card-body bg-warning">
+                <h5 class="card-title"><%= e.title%></h5>
+                <h6 class="card-subtitle mb-2 text-muted">
+                    <%= e.technology%> -  | <%= e.link%>
+                </h6>
+                <p class="card-text text-muted">Description: <%= e.description%></p>
+                <p class="card-text text-muted">link: <%= e.link%></p>
+                <a href="/delete-project/<%= i%>" class="card-link"><button class="btn btn-danger">Remove</button></a>
+            </div>
+        </div>
+        <% })%>
+    </div>
+</div>
+
+<%- include('../partials/footer')%>

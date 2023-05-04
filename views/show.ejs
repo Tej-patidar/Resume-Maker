@@ -1,0 +1,134 @@
+
+<%- include('./partials/header')%>
+
+<div class="container mt-5">
+    <!-- <h3 class="fw-light fs-3">All Resumes</h3> -->
+
+    <div class="resume shadow p-3 " style="background-color: antiquewhite;">
+        <page size="A4" class="p-5 ">
+            <div class="d-flex container w-50 border rounded p-3">
+            <img
+                height="120"
+                width="120"
+                style="object-fit: cover; border-radius: 50%"
+                src="/images/<%= user.avatar%>"
+                alt=""
+            />
+            <div class="ps-4">
+            <h1 class="fw-light fs-1 text-uppercase"><%= user.username%></h1>
+            <h5 class="fw-light fs-5"><%= user.email%></h5>
+            <h6 class="fw-light fs-6"><%= user.contact%></h6></div>
+        </div>
+            <hr />
+            <h3 class="fw-light fs-3 text-center"><button class="btn btn-info form-control">Qualifications </button></h3>
+            <div class="d-flex justify-content-around flex-wrap">
+                <% user.education.forEach((e, i)=> { %>
+                <div class="card me-3 mb-3" style="width: 18rem">
+                    <div class="card-body bg-warning">
+                        <h5 class="card-title"><%= e.degree%></h5>
+                        <h6 class="card-subtitle mb-2 text-muted">
+                            <%= e.institute%> - <%= e.year%> | <%=
+                            e.university%>
+                        </h6>
+                        <p class="card-text">CGPA/PERCENTAGE <%= e.grade%></p>
+                    </div>
+                </div>
+                <% })%>
+            </div>
+
+            <!-- ............ -->
+            <h3 class="fw-light fs-3 text-center"><button class="btn btn-info form-control">Experience </button></h3>
+
+            <div class="d-flex justify-content-around flex-wrap">
+                <% user.experience.forEach((e, i)=> { %>
+                <div class="card me-3 mb-3" style="width: 18rem">
+                    <div class="card-body bg-warning">
+                        <h5 class="card-title"><%= e.company%></h5>
+                        <h6 class="card-subtitle mb-2 text-muted">
+                            <%= e.designation%> - 
+                        </h6>
+                        <p class="card-text">Duration <%= e.duration%></p>
+                    </div>
+                </div>
+                <% })%>
+            </div>
+
+            <!-- ...........  -->
+            <h3 class="fw-light fs-3 text-center"><button class="btn btn-info form-control">Interest </button></h3>
+            <div class="d-flex justify-content-around flex-wrap">
+                <% user.interest.forEach((e, i)=> { %>
+                <div class="card me-3 mb-3" style="width: 18rem">
+                    <div class="card-body bg-warning">
+                        <h5 class="card-title"><%= e.interest%></h5>
+                    </div>
+                </div>
+                <% })%>
+            </div>
+
+
+
+            <!-- ................  -->
+            <h3 class="fw-light fs-3 text-center"><button class="btn btn-info form-control">Projects </button></h3>
+            
+            
+            <div class="d-flex justify-content-around flex-wrap">
+                <% user.project.forEach((e, i)=> { %>
+                <div class="card me-3 mb-3" style="width: 18rem">
+                    <div class="card-body bg-warning">
+                        <h5 class="card-title"><%= e.title%></h5>
+                        <h6 class="card-subtitle mb-2 text-muted">
+                            <%= e.technology%> - <%= e.description%> | <%= e.link%>
+                        </h6>
+                    </div>
+                </div>
+                <% })%>
+            </div>
+
+
+
+            <!-- .....................  -->
+            <h3 class="fw-light fs-3 text-center"><button class="btn btn-info form-control">Skill </button></h3>
+            
+            
+            <div class="d-flex justify-content-around flex-wrap">
+                <% user.skill.forEach((e, i)=> { %>
+                <div class="card me-3 mb-3" style="width: 18rem">
+                    <div class="card-body bg-warning">
+                        <h5 class="card-title"><%= e.skill%></h5>
+                    </div>
+                </div>
+                <% })%>
+            </div>
+
+
+        </div>
+        <button class="printbtn mt-5 btn btn-success form-control">Print</button>
+    </div>
+</page>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<link
+    rel="stylesheet"
+    href="https://kendo.cdn.telerik.com/2017.1.223/styles/kendo.common.min.css"
+/>
+<script src="https://kendo.cdn.telerik.com/2017.1.223/js/jszip.min.js"></script>
+<script src="https://kendo.cdn.telerik.com/2017.1.223/js/kendo.all.min.js"></script>
+
+<script>
+    function getPDF(selector) {
+        kendo.drawing.drawDOM($(selector)).then(function (group) {
+            kendo.drawing.pdf.saveAs(group, "testing.pdf");
+        });
+    }
+</script>
+<script type="text/javascript">
+    $(".printbtn").click(function () {
+        getPDF(".resume");
+    });
+</script>
+
+<%- include('./partials/footer')%>
+
+
+
+   

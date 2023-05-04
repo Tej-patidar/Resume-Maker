@@ -1,0 +1,38 @@
+<%- include('../partials/header')%>
+<div style="background-image: url(https://images.unsplash.com/photo-1498323594935-5b5823f7fb42?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mzh8fGV4cGVyaWVuY2V8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60);width: 100%;
+height: 100%; background-repeat: no-repeat; background-size: cover; background-position: center;">
+<div class="container text-light p-3"  >
+    <ul class="d-flex justify-content-around list-unstyled btn btn-info p-2">
+        <li><a href="/education"><button class="btn btn-success"> Eduaction</button></a></li> 
+        <li><a href="/skill"><button class="btn btn-success">Skill</button></a></li>
+        <li><a href="/project"><button class="btn btn-success">Project</button></a></li>
+        <li><a href="/experience"><button class="btn btn-secondary">Experience</button></a></li>
+        <li><a href="/interest"><button class="btn btn-success">Interest</button></a></li>
+    </ul>
+    <hr />
+    <form action="/add-experience" class="experience mt-5 container" method="POST">
+        <input type="text" placeholder="company Name" name="company" class="form-control" /><br>
+        <input type="text" placeholder="Designation" name="designation" class="form-control" /><br>
+        <input type="text" placeholder="Duration" name="duration" class="form-control"/><br>
+       
+
+        <button class="form-control btn btn-success">Add Experience</button>
+    </form>
+    <hr />
+    <div class="d-flex flex-wrap">
+        <% user.experience.forEach((e, i)=> { %>
+        <div class="card me-3 mb-3" style="width: 18rem">
+            <div class="card-body bg-warning">
+                <h5 class="card-title"><%= e.company%></h5>
+                <h6 class="card-subtitle mb-2 text-muted">
+                    <%= e.designation%> - 
+                </h6>
+                <p class="card-text">Duration <%= e.duration%></p>
+                <a href="/delete-experience/<%= i%>" class="card-link"><button class="btn btn-danger">Remove</button></a>
+            </div>
+        </div>
+        <% })%>
+    </div>
+</div>
+
+<%- include('../partials/footer')%>

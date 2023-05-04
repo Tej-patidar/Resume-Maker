@@ -1,0 +1,27 @@
+
+<%- include("./partials/header")%>
+<div style="background-image: url(https://images.unsplash.com/photo-1515703817793-511cee221bb9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjYzfHxlZGl0aW5nJTIwYmFja2dyb3VuZHMlMjB0ZWNofGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60);
+background-repeat: no-repeat;
+background-size: cover;
+color: white;
+width: 100%;
+height: 90%;">
+<form action="/signin" method="post" class="container w-50 pt-4">
+    <h2>📃SIGNIN TO RESUME-MAKER📃</h2> <br> <br>
+    <input type="text" placeholder="Username" name="username" class="form-control"> <br><br>
+    <input type="password" placeholder="password" name="password" class="form-control"> <br> <br>
+    <a href="/forget-password" class="d-flex justify-content-end text-danger">FORGET-PASSWORD ?</a>
+    <button class="btn btn-success form-control">SIGN-IN</button> <br> <br>
+    <!-- <a  class="btn btn-success form-control" href="/profile">SIGN-IN</a> -->
+    <p class="text-center ">For Creating An Account :<a href="/signup" class="text-warning"> SIGN-UP</a></p>
+</form>
+</div>
+
+
+<%- include("./partials/footer")%>
+ 
+  
+
+
+
+   

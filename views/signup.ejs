@@ -1,0 +1,27 @@
+
+<%- include("./partials/header")%>
+<div style="background-image: url(https://images.unsplash.com/photo-1468436139062-f60a71c5c892?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjAwfHxlZGl0aW5nJTIwYmFja2dyb3VuZHMlMjB0ZWNofGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60);
+width: 100%;
+height: 90%;
+background-repeat: no-repeat;
+background-size: cover;
+color: white;">
+<form action="/signup" method="post" class="w-50 container p-3" >
+<h1 class="text-center pb-3">Create An Account 👤</h1>
+    <input type="text" placeholder="Username" name="username" class="form-control"> <br>
+    <input type="email" placeholder="E-mail" name="email" class="form-control"> <br>
+    <input type="password" placeholder="password" name="password" class="form-control"> <br> 
+    <input type="number" placeholder="contact" name="contact" class="form-control"><br>
+    <button class="btn btn-success form-control">Create Account</button> <br>
+    <p class="text-center p-4">ALready Have An Account ? <a href="/signin">SIGN-IN</a></p>
+</form>
+</div>
+
+
+<%- include("./partials/footer")%>
+ 
+  
+
+
+
+   
